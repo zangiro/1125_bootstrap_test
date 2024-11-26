@@ -15,3 +15,14 @@
 
 <%= link_to "New user", new_user_path %>
 <%= link_to "トップページ", static_pages_top_path %>
+
+<div class="mt-3">
+  <%= link_to "Test Bootstrap Button", "#", class: "btn btn-primary", id: "testButton" %>
+</div>
+
+<script>
+  document.getElementById("testButton").addEventListener("click", function(event) {
+    event.preventDefault(); // リンクのデフォルト動作を防ぐ
+    alert("ボタンがクリックされたダ！");
+  });
+</script>
