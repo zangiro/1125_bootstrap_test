@@ -3,7 +3,13 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @users = User.all
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true)
+  end
+
+  def search
+    @users = User.where("name like ?", "%#{params[:q]}%")
+    render partial: "search"
   end
 
   # GET /users/1 or /users/1.json
