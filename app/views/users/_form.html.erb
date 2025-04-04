@@ -21,6 +21,8 @@
     <%= form.text_field :email %>
   </div>
 
+  <%# ーーーーーーー画像選択でプレビューの表示のStimulus設定ーーーーーーーーー %>
+
   <div data-controller="preview">
     <%= form.label :avatar %>
     <%= form.file_field :avatar, data: { "preview-target": "input", action: "change->preview#previewImage"} %>
