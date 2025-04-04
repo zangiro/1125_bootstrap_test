@@ -21,9 +21,17 @@
     <%= form.text_field :email %>
   </div>
 
-  <div>
+  <div data-controller="preview">
     <%= form.label :avatar %>
-    <%= form.file_field :avatar %>
+    <%= form.file_field :avatar, data: { "preview-target": "input", action: "change->preview#previewImage"} %>
+
+    <div class="row" data-preview-target="existing">
+      <%= image_tag user.avatar if user.avatar.attached? %>
+    </div>
+
+    <div class="flex justify-center mt-4 mb-4" data-preview-target="preview">
+    </div>
+
   </div>
 
   <div>

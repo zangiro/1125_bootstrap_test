@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import ImagesController from "./images_controller"
 application.register("images", ImagesController)
+
+import PreviewController from "./preview_controller"
+application.register("preview", PreviewController)
