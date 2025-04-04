@@ -43,6 +43,15 @@
     <%= link_to "New user", new_user_path %>
     <%= link_to "トップページ", static_pages_top_path %>
 
+    <div data-controller="images">
+      <div class="row" data-images-target="word">
+        <h1>Sample1</h1>
+        <h2>Sample2</h2>
+      </div>
+
+      <button data-action="click->images#clickTest">ボタン</button>
+    </div>
+
   </div>
 </div>
 

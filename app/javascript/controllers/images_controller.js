@@ -1,7 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="images"
 export default class extends Controller {
-  connect() {
+  static targets = ["word"]
+
+  clickTest() {
+    const word = this.wordTarget
+
+    word.style.display = 'none'
   }
 }
