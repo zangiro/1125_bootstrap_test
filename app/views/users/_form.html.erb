@@ -26,6 +26,8 @@
   <div data-controller="preview">
     <%= form.label :avatar %>
     <%= form.file_field :avatar, data: { "preview-target": "input", action: "change->preview#previewImage"} %>
+    <%# ーーー"change->xxxxx"のchangeは、ファイル選択の入力フィールドでユーザーがファイルを選択したときに発火するイベントーー %>
+    <%#  ーーーーー今回はchangeイベントが発火すると「preview_controller.js」の「previewImage」のメソッドが呼び出されるーーーー%>
 
     <div class="row" data-preview-target="existing">
       <%= image_tag user.avatar if user.avatar.attached? %>

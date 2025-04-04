@@ -16,7 +16,8 @@ export default class extends Controller {
 
     if (files.length > 0) {
       const reader = new FileReader()
-      // new FileReaderを使うために特別な準備は必要ない。FileReaderはブラウザが提供するAPIだから、JavaScriptを実行できる環境があればすぐに使える
+      // new FileReaderを使うために特別な準備は必要ない。FileReaderはブラウザが提供するAPIだから、JavaScriptを実行できる環境があればすぐに使える。
+      // FileReaderテーブルみたいなのは不必要
   
       reader.onload = (e) => {preview.innerHTML = `<img src="${e.target.result}">`;}
       // onloadはFileReaderのプロパティの一つ。ファイルの読み込みが完了したときに呼ばれるイベントハンドラーを設定するためのもの。
