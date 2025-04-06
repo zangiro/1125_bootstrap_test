@@ -38,12 +38,20 @@
 
   </div>
 
-  <%# ーーーーーーー画像選択でプレビューの表示のStimulus設定ーーーーーーーーー %>
-
-  <div>
+  <div data-controller="preview">
     <%= form.label :sub_avatar %>
-    <%= form.file_field :sub_avatar %>
+    <%= form.file_field :sub_avatar, data: { "preview-target": "input", action: "change->preview#previewImage"} %>
+
+    <div class="row" data-preview-target="existing">
+      <%= image_tag user.sub_avatar if user.sub_avatar.attached? %>
+    </div>
+
+    <div class="row" data-preview-target="preview">
+    </div>
+
   </div>
+
+  <%# ーーーーーーー画像選択でプレビューの表示のStimulus設定ーーーーーーーーー %>
 
   <div>
     <%= form.submit %>
