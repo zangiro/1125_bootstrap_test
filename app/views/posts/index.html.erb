@@ -1,0 +1,8 @@
+いんでっくす
+
+<%= form_with url: test_a_posts_path do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, class: "form-control" %>
+  
+  <%= f.submit nil, class: "btn btn-primary" %>
+<% end %>
