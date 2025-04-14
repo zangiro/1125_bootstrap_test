@@ -25,6 +25,8 @@ class PostsController < ApplicationController
   end
 
   def test_a
+    @client = GooglePlaces::Client.new(ENV['GOOGLE_MAPS_API_KEY'])
+    @store = @client.spots(34.685109, 135.8048019)
   end
 
   private
