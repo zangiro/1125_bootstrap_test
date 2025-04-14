@@ -6,16 +6,16 @@
   function initMap() {
     // 地図のオプション
     const mapOptions = {
-      // center: { lat: 35.6803997, lng: 139.7690174 }, // 地図の初期表示位置（東京）
-      center: { lat: 34.685109, lng: 135.8048019 },  // 奈良県ver
-      zoom: 10 // ズームレベル
+      center: { lat: 35.6803997, lng: 139.7690174 }, // 地図の初期表示位置（東京）
+      // center: { lat: 34.685109, lng: 135.8048019 },  // 奈良県ver
+      zoom: 13 // ズームレベル
     };
 
     // 地図を指定した要素に表示
     const map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
     marker = new google.maps.Marker({
-      position:  { lat: 34.685109, lng: 135.8048019 },
+      position:  { lat: 35.6794319, lng: 139.767869 },
       map: map
     });
   }

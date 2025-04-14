@@ -1,4 +1,21 @@
+<div class="container">
+<div class="row">
+
 てすとA
 <% @store.each do |st| %>
-  <%= st.name %>
+  <div>
+    店名
+    <%= st.name %>
+  </div>
+  <div>
+    緯度
+    <%= st.lat %>
+  </div>
+  <div>
+    軽度
+    <%= st.lng %>
+  </div>
 <% end %>
+
+</div>
+</div>
