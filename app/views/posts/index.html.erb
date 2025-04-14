@@ -1,8 +1,17 @@
+<div class="container">
+<div class="row">
 いんでっくす
 
-<%= form_with url: test_a_posts_path do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title, class: "form-control" %>
-  
-  <%= f.submit nil, class: "btn btn-primary" %>
+<% @posts.each do |post| %>
+  <div class="row">
+  <div class="py-4 my-1 bg-info">
+  <%= post.title %>
+  <%= post.address %>
+  <%= post.latitude %>
+  <%= post.longitude %>
+  </div>
+  </div>
 <% end %>
+
+</div>
+</div>
