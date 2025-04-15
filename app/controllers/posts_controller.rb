@@ -25,7 +25,9 @@ class PostsController < ApplicationController
   end
 
   def test_a
+    @post = Post.find(3)
     @client = GooglePlaces::Client.new(ENV['GOOGLE_MAPS_API_KEY'])
+    #@store = @client.spots(35.6803997, 139.7690174, :detail => true, :name => '味噌カレー牛乳ラーメン', :language => 'ja')
     @store = @client.spots(35.6803997, 139.7690174, :name => '味噌カレー牛乳ラーメン', :language => 'ja')
   end
 
