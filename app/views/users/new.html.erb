@@ -11,12 +11,28 @@
       zoom: 13 // ズームレベル
     };
 
+    const contentString =
+      '<div>'
+      + '見る'
+      + '</div>';
+
+    const infowindow = new google.maps.InfoWindow({
+      content: contentString,
+    });
+
     // 地図を指定した要素に表示
     const map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
     marker = new google.maps.Marker({
       position:  { lat: 35.6794319, lng: 139.767869 },
       map: map
+    });
+
+    marker.addListener("click", () => {
+      infowindow.open({
+      anchor: marker,
+      map,
+      });
     });
   }
 </script>
