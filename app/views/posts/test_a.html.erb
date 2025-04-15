@@ -26,7 +26,6 @@
 </div>
 
 
-<%# ーーーーーーーーーーーーーーーーーーーーーーーgoogle mapーーーーーーーーーーーーーーーーーーーーーーーーー %>
 
 <script>
   // 地図を初期化する関数
@@ -37,32 +36,17 @@
       zoom: 13
     };
 
-    const contentString =
-      '<div>'
-      + '見る'
-      + '</div>'
-      + '<div>'
-      + '食べる'
-      + '</div>';
-
-    const infowindow = new google.maps.InfoWindow({
-      content: contentString,
-    });
-
     // 地図を指定した要素に表示
     const map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-    marker = new google.maps.Marker({
-      position:  { lat: 35.6794319, lng: 139.767869 },
-      map: map
-    });
+    <% @store.each do |store| %>
 
-    marker.addListener("click", () => {
-      infowindow.open({
-      anchor: marker,
-      map,
+      marker = new google.maps.Marker({
+        position: { lat: <%= store.lat %>, lng: <%= store.lng %> },
+        map: map
       });
-    });
+
+    <% end %>
   }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>&callback=initMap"></script>
