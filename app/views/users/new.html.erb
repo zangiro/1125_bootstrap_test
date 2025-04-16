@@ -1,11 +1,39 @@
-<% content_for :title, "New user" %>
+<!-- マップを表示する要素 -->
+<div id="map" style="height: 600px;"></div>
 
-<h1>New user</h1>
+<script>
+  // 地図を初期化する関数
+  function initMap() {
+    // 地図のオプション
+    const mapOptions = {
+      center: { lat: 35.6803997, lng: 139.7690174 }, // 地図の初期表示位置（東京）
+      // center: { lat: 34.685109, lng: 135.8048019 },  // 奈良県ver
+      zoom: 13 // ズームレベル
+    };
 
-<%= render "form", user: @user %>
+    const contentString =
+      '<div>'
+      + '見る'
+      + '</div>';
 
-<br>
+    const infowindow = new google.maps.InfoWindow({
+      content: contentString,
+    });
 
-<div>
-  <%= link_to "Back to users", users_path %>
-</div>
+    // 地図を指定した要素に表示
+    const map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    marker = new google.maps.Marker({
+      position:  { lat: 35.6794319, lng: 139.767869 },
+      map: map
+    });
+
+    marker.addListener("click", () => {
+      infowindow.open({
+      anchor: marker,
+      map,
+      });
+    });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>&callback=initMap"></script>

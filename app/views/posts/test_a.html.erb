@@ -1,0 +1,67 @@
+<div class="container">
+<div class="row">
+てすとA
+<% @store.each do |st| %>
+  <div class="mt-3">
+    店名
+    <%= st.name %>
+  </div>
+  <div>
+    緯度
+    <%= st.lat %>
+  </div>
+  <div>
+    軽度
+    <%= st.lng %>
+  </div>
+<% end %>
+
+<!-- マップを表示する要素 -->
+<div id="map" style="height: 600px;"></div>
+
+<%= @post.latitude %>
+<%= @post.longitude %>
+
+</div>
+</div>
+
+
+
+<script>
+  // 地図を初期化する関数
+  function initMap() {
+    // 地図のオプション
+    const mapOptions = {
+      center: { lat: <%= @post.latitude %>, lng: <%= @post.longitude %> },
+      zoom: 13
+    };
+
+    // 地図を指定した要素に表示
+    const map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    <% @store.each_with_index do |store, i| %>
+
+      contentString_<%= i %> = 
+      '<div><%= store.name %></div>';
+
+      infowindow_<%= i %> = new google.maps.InfoWindow({
+        content: contentString_<%= i %>,
+      });
+
+
+      marker_<%= i %> = new google.maps.Marker({
+        position: { lat: <%= store.lat %>, lng: <%= store.lng %> },
+        map: map
+      });
+
+      marker_<%= i %>.addListener("click", () => {
+        infowindow_<%= i %>.open({
+          anchor: marker_<%= i %>,
+          map,
+        });
+      });
+
+    <% end %>
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>&callback=initMap"></script>

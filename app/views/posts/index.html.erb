@@ -1,0 +1,17 @@
+<div class="container">
+<div class="row">
+いんでっくす
+
+<% @posts.each do |post| %>
+  <div class="row">
+  <div class="py-4 my-1 bg-info">
+  <%= post.title %>
+  <%= post.address %>
+  <%= post.latitude %>
+  <%= post.longitude %>
+  </div>
+  </div>
+<% end %>
+
+</div>
+</div>

@@ -1,0 +1,11 @@
+にゅー
+
+<%= form_with model: @post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, class: "form-control" %>
+
+  <%= f.label :address %>
+  <%= f.text_field :address, class: "form-control" %>
+  
+  <%= f.submit nil, class: "btn btn-primary" %>
+<% end %>
