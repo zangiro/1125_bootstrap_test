@@ -39,26 +39,24 @@
     // 地図を指定した要素に表示
     const map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-    <% @store.each do |store| %>
+    <% @store.each_with_index do |store, i| %>
 
-      contentString = 
-      '<div>' 
-      + '<%= store.name %>' 
-      + '</div>';
+      contentString_<%= i %> = 
+      '<div><%= store.name %></div>';
 
-      infowindow = new google.maps.InfoWindow({
-        content: contentString,
+      infowindow_<%= i %> = new google.maps.InfoWindow({
+        content: contentString_<%= i %>,
       });
 
 
-      marker = new google.maps.Marker({
+      marker_<%= i %> = new google.maps.Marker({
         position: { lat: <%= store.lat %>, lng: <%= store.lng %> },
         map: map
       });
 
-      marker.addListener("click", () => {
-        infowindow.open({
-          anchor: marker,
+      marker_<%= i %>.addListener("click", () => {
+        infowindow_<%= i %>.open({
+          anchor: marker_<%= i %>,
           map,
         });
       });
