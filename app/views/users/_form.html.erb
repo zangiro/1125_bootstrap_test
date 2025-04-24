@@ -30,7 +30,9 @@
     <%#  ーーーーー今回はchangeイベントが発火すると「preview_controller.js」の「previewImage」のメソッドが呼び出されるーーーー%>
 
     <div class="row" data-preview-target="existing">
-      <%= image_tag user.avatar if user.avatar.attached? %>
+      <% if user.persisted? && user.avatar.attached? %>
+        <%= image_tag user.avatar %>
+      <% end %>
     </div>
 
     <div class="row" data-preview-target="preview">
