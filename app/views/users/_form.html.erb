@@ -30,7 +30,7 @@
     <%#  ーーーーー今回はchangeイベントが発火すると「preview_controller.js」の「previewImage」のメソッドが呼び出されるーーーー%>
 
     <div class="row" data-preview-target="existing">
-      <% if user.persisted? && user.avatar.attached? %>
+      <% if user.persisted? && user.avatar.attached? && @test == "1" %>
         <%= image_tag user.avatar %>
       <% end %>
     </div>
@@ -58,4 +58,11 @@
   <div>
     <%= form.submit %>
   </div>
+<% end %>
+<% if @test == "1" %>
+画像初期
+<% elsif @test == "2" %>
+編集失敗後
+<% else %>
+失敗
 <% end %>
