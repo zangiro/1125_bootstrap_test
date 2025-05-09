@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root "static_pages#top"
   get "static_pages/top", to: "static_pages#top", as: "static_pages_top"
+  get 'test', to: 'tests#index'
   resources :users do
     get :search, on: :collection
   end
