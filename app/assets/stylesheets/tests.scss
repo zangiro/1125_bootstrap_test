@@ -1,5 +1,6 @@
-body {
-  background-image: url('path/to/your/image.jpg');
-  background-size: cover;
+.bg_img {
+  background-image: url('top.png');
+  height: 100vh;
+  position: relative;
   background-position: center;
 }
