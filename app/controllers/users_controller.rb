@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    @users = User.where("name like ?", "%#{params[:q]}%")
+    @users = User.where("name like ?", "%#{params[:q]}%").limit(10)
     render partial: "search"
   end
 
