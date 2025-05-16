@@ -1,0 +1,16 @@
+<div class="container bg-info">
+  <div class="row">
+    <h5 class="header_title">ヘッダー</h5>
+
+    <%= search_form_for @q, url: users_path do |f| %>
+      <div data-controller="autocomplete" data-autocomplete-url-value="/users/search" role="combobox">
+        <%= f.search_field :name_cont, data: { autocomplete_target: 'input' }, class: 'form-control', placeholder: '検索' %>
+        <%= f.hidden_field :name, data: { autocomplete_target: 'hidden' } %>
+        <ul class="list-group" data-autocomplete-target="results">
+        </ul>
+      </div>
+   
+      <%= f.submit "決定" %>
+    <% end %>
+  </div>
+</div>

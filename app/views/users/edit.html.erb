@@ -1,5 +1,7 @@
 <% content_for :title, "Editing user" %>
 
+<div class="container">
+<div class="row">
 <h1>Editing user</h1>
 
 <%= render "form", user: @user %>
@@ -9,4 +11,6 @@
 <div>
   <%= link_to "Show this user", @user %> |
   <%= link_to "Back to users", users_path %>
+</div>
+</div>
 </div>

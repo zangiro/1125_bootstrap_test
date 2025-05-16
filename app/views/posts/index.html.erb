@@ -13,5 +13,22 @@
   </div>
 <% end %>
 
+<%# ーーーーーーーーーーーーーーーーーーーーーーーーtest %>
+
+<div class="row bg-info mb-3">
+<% @posts.each_with_index do |post, area_index| %>
+  <div class="form-check form-check-inline col-3">
+    <input class="form-check-input" type="checkbox" name="ps[]" id="area_box<%= area_index %>" value="<%= post.title %>">
+    <label class="form-check-label" for="area_box<%= area_index %>">
+      <%= post.title %>
+    </label>
+  </div>
+<% end %>
+</div>
+
+
+
+<%# ーーーーーーーーーーーーーーーーーーーーーーーーtest %>
+
 </div>
 </div>

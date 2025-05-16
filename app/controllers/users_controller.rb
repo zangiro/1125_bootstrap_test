@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    @users = User.where("name like ?", "%#{params[:q]}%")
+    @users = User.where("name like ?", "%#{params[:q]}%").limit(10)
     render partial: "search"
   end
 
@@ -42,14 +42,13 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: "User was successfully updated." }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if params[:user][:avatar].present?
+      @test = "1"
+    end
+    if @user.update(user_params)
+      redirect_to @user, notice: "User was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 

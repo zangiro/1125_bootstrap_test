@@ -4,18 +4,15 @@
     <h1>ユーザー一覧</h1>
 
     <%= search_form_for @q, url: users_path do |f| %>
-      <div data-controller="autocomplete" data-autocomplete-url-value="/users/search" role="combobox" class="flex-grow">
-        <%= f.search_field :name_cont, data: { autocomplete_target: 'input' }, class: 'form-control', placeholder: 'ジム名で検索' %>
+      <div data-controller="autocomplete" data-autocomplete-url-value="/users/search" role="combobox">
+        <%= f.search_field :name_cont, data: { autocomplete_target: 'input' }, class: 'form-control', placeholder: '検索' %>
         <%= f.hidden_field :name, data: { autocomplete_target: 'hidden' } %>
-        <ul class="list-group z-10 bg-base-100 dark:bg-base-200 hover:bg-base-200 dark:hover:bg-base-100 absolute w-full md:text-sm" data-autocomplete-target="results">
+        <ul class="list-group" data-autocomplete-target="results">
         </ul>
-        <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none pl-3">
-          <span class="material-symbols-outlined text-gray-400">search</span>
-        </div>
       </div>
-
-      <%= f.submit "BBB" %>
-    <% end %>
+     
+    <%= f.submit "決定" %>
+   <% end %>
 
 
     <div id="users">
@@ -42,6 +39,8 @@
         </div>
       <% end %>
     </div>
+
+    <h1 class="user_test">テスト</h1>
 
     <%= link_to "New user", new_user_path %>
     <%= link_to "トップページ", static_pages_top_path %>
