@@ -1,5 +1,4 @@
 <div class="container">
-  <div class="row">
 
     <h1>ユーザー一覧</h1>
 
@@ -27,11 +26,11 @@
           <div>
           E-メール：<%= user.email %>
           </div>
-          <div>
-          <%= image_tag user.avatar if user.avatar.attached? %>
+          <div class="col-2">
+          <%# image_tag user.avatar if user.avatar.attached? %>
           </div>
           <div>
-          <%= image_tag user.sub_avatar if user.sub_avatar.attached? %>
+          <%# image_tag user.sub_avatar if user.sub_avatar.attached? %>
           </div>
           <div>
           ーーーーーーーーーーーーー
@@ -56,7 +55,6 @@
       <button data-action="click->images#clickTest">ボタン</button>
     </div>
 
-  </div>
 </div>
 
 
